@@ -1,11 +1,11 @@
-= Welcome to Template Tutorial
+= Welcome to the Openshift Hackathon
 :page-layout: home
 :!sectids:
 
 [.text-center.strong]
-== Publish Services to Kubernetes
+== Welcome to the Hackathon ! 
 
-A Kubernetes tutorial to show how you can deploy a Java service to a Kubernetes cluster as it was a child game.
+2 days to master all the Cloud Native tools ! 
 
 [.tiles.browse]
 == Browse modules
@@ -15,6 +15,6 @@ A Kubernetes tutorial to show how you can deploy a Java service to a Kubernetes 
 * xref:01-setup.adoc#minikube[Minikube]
 
 [.tile]
-.xref:02-deploy.adoc[Deploying]
-* xref:02-deploy.adoc#package[Package the Application]
-* xref:02-deploy.adoc#deploy[Deploy the Application]
+* xref:02-containers.adoc[2. Containers]
+** xref:02-containers.adoc#exercice1[Containerize your app - Easy]
+** xref:02-containers.adoc#exercice2[Containerize your app - Hard]

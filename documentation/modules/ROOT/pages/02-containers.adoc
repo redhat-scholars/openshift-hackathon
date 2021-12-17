@@ -1,0 +1,19 @@
+= Deploy Service
+include::_attributes.adoc[]
+
+[#goal]
+== The Goal
+
+
+[#exercice1]
+== Containerize your app [easy]
+
+You can package the next bash script:
+
+[source,bash,subs="+macros,+attributes"]
+----
+include::example$run.sh[]
+----
+
+[#exercice2]
+== Containerize your app [hard]

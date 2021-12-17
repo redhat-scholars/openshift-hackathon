@@ -2,6 +2,6 @@
 ** xref:01-setup.adoc#prerequisite[Prerequisites]
 ** xref:01-setup.adoc#minikube[Setup Minikube]
 
-* xref:02-deploy.adoc[2. Deploy Service]
-** xref:02-deploy.adoc#package[Build Service]
-** xref:02-deploy.adoc#deploy[Deploy Dervice]
+* xref:02-containers.adoc[2. Containers]
+** xref:02-containers.adoc#exercice1[Containerize your app - Easy]
+** xref:02-containers.adoc#exercice2[Containerize your app - Hard]
