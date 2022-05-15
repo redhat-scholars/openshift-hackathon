@@ -3,9 +3,8 @@
 :!sectids:
 
 [.text-center.strong]
-== Welcome to the Hackathon ! 
+== Bienvenue au Hackathon Erable ! 
 
-Bienvenue au Hackathon Erable ! 
 Vous trouverez ici le contenu des différents challenges ainsi que des resources techniques.
 
 Assurez-vous aussi de bien rejoindre le channel Slack car c'est par ce moyen que vous allez fournrir les preuves pour chaque challenge : https://rhdevnation.slack.com/archives/C03FGU9LR2N
@@ -26,3 +25,8 @@ Des points bonus sont attribués pour les premières équipes fournissant les pr
 * Première équipe : +3 points
 * Deuxième équipe : +2 points
 * Troisième équipe : +1 points
+
+== Les resources
+
+* http://dn.dev/learn
+* http://quarkus.io
