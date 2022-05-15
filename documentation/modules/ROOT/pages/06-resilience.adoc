@@ -1,0 +1,64 @@
+== Résilience et scalabilité
+
+Il est de temps de rendre nos deux applications résilientes et capable de tenir la charge.
+Nous allons commencer par rajouter des `health checks` à notre `antennas-incidents`. Puis nous positionnerons un Horizontal Pod Autoscaler afin de pouvoir tenir la charge.
+
+Finalement, nous modifierons `antennas-front` afin qu'elle soit résilience dans le cas où le service distant (`antennas-incident`) soit indisponible. Pour cela, il faudra encore une fois changer le code de notre application `antennas-front` en utlisant l'extension `fault-tolerance` : https://quarkus.io/guides/smallrye-fault-tolerance
+
+=== Mise en place des Health Checks [*Challenge 6.1*]
+
+L'application `antennas-incident` a 2 endpoints qui fournissent des checks : 
+
+* `q/health/live` pour le liveness probe
+* `q/health/ready` pour le readyness probe 
+
+Il va falloir mettre à jour les resources K8s afin d'utiliser ces probes.
+
+Ensuite, il faut mettre en place un HPA (Horizontal Pod Autoscaler). Pensez aussi à baisser les resources disponibles de votre `Deployment` (Limit and Request), mettez des valeurs assez basse pour faire réagir le HPA. 
+
+Voici un example d'un HPA : 
+
+[.console-output]
+[source,text]
+----
+
+kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2beta2
+metadata:
+  name: example
+  namespace: myspace
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: antennas-incident
+    apiVersion: apps/v1
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: AverageValue
+          averageValue: 10Mi
+
+----
+
+==== Preuves à fournir 
+
+* [*Challenge 6.1.1*] Screenshot que le pod contient bien les health checks
+* [*Challenge 6.1.2*] Screenshot de la resource HPA
+* [*Challenge 6.1.3*] Screenshot que le pod autoscale 
+
+=== Mise en place des Health Checks [*Challenge 6.2*]
+
+Il s'agit maintenant de modifier `antennas-front` afin qu'elle soit résiliente en cas de coupure de `antennas-incident`.
+Pensez à scaler `antennas-incident` afin de simuler une panne du service. 
+
+==== Preuves à fournir 
+
+* [*Challenge 6.2.1*] URL du service `antennas-front` et qui montre un incident nommé `fallback`
+
+
+
+
