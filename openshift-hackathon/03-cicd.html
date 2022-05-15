@@ -92,9 +92,50 @@
   <div class="content">
 <article class="doc">
 <div class="sect1">
-<h2 id="_cicd_avec_jenkins_ou_bien_tekton_pour_les_plus_courageux"><a class="anchor" href="#_cicd_avec_jenkins_ou_bien_tekton_pour_les_plus_courageux"></a>CI/CD avec Jenkins (ou bien Tekton pour les plus courageux ;) )</h2>
+<h2 id="_cicd_avec_openshift_pipelines"><a class="anchor" href="#_cicd_avec_openshift_pipelines"></a>CI/CD avec OpenShift Pipelines</h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>Il est temps de mettre en place notre chaine de CI/CD. On part du principe qu&#8217;on utilise OpenShift Pipelines dont le projet upstream est <code>Tekton</code> mais vous pouvez aussi utiliser Jenkins si vous préférez.</p>
+</div>
+<div class="paragraph">
+<p>Pour en savoir plus sur Tekton n&#8217;hésitez pas à regarder ce tutorial : dn.dev/tekton-tutorial</p>
+</div>
+<div class="sect2">
+<h3 id="_installer_openshift_pipelines_challenge_5_1"><a class="anchor" href="#_installer_openshift_pipelines_challenge_5_1"></a>Installer OpenShift Pipelines [<strong>Challenge 5.1</strong>]</h3>
+<div class="paragraph">
+<p>OpenShift Pipelines est fourni par l&#8217;intermédiaire d&#8217;un Operator. Il va falloir que vous exploriez votre cluster pour trouver comment l&#8217;installer.
+Une fois installé vous pourrez faire la meme chose que le challenge 2.2 , la partie CI/CD , regardez bien les options, vous pourrez cette fois rajouter un pipeline.</p>
+</div>
+<div class="sect3">
+<h4 id="_preuves_à_fournir"><a class="anchor" href="#_preuves_à_fournir"></a>Preuves à fournir</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>[<strong>Challenge 3.1.1</strong>] Screenshot de l&#8217;Operator installé</p>
+</li>
+<li>
+<p>[<strong>Challenge 3.1.2</strong>] Screenshot du pipeline qui s&#8217;est déroulé sans soucis (tout vert)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_installer_openshift_pipelines_trigger_challenge_5_2"><a class="anchor" href="#_installer_openshift_pipelines_trigger_challenge_5_2"></a>Installer OpenShift Pipelines Trigger [<strong>Challenge 5.2</strong>]</h3>
+<div class="paragraph">
+<p>On veut déclencher notre pipeline à chaque commit, pour cela il va falloir installer un Trigger.</p>
+</div>
+<div class="sect3">
+<h4 id="_preuves_à_fournir_2"><a class="anchor" href="#_preuves_à_fournir_2"></a>Preuves à fournir</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>[<strong>Challenge 3.2.1</strong>] Screenshot du trigger qui déclenche le pipeline (ou screenshot du log)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 <nav class="pagination">
