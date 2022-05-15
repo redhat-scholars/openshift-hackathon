@@ -1,2 +1,24 @@
-== CI/CD avec Jenkins (ou bien Tekton pour les plus courageux ;) )
+== CI/CD avec OpenShift Pipelines
+
+Il est temps de mettre en place notre chaine de CI/CD. On part du principe qu'on utilise OpenShift Pipelines dont le projet upstream est `Tekton` mais vous pouvez aussi utiliser Jenkins si vous préférez.
+
+Pour en savoir plus sur Tekton n'hésitez pas à regarder ce tutorial : dn.dev/tekton-tutorial
+
+=== Installer OpenShift Pipelines [*Challenge 5.1*]
+
+OpenShift Pipelines est fourni par l'intermédiaire d'un Operator. Il va falloir que vous exploriez votre cluster pour trouver comment l'installer.
+Une fois installé vous pourrez faire la meme chose que le challenge 2.2 , la partie CI/CD , regardez bien les options, vous pourrez cette fois rajouter un pipeline.
+
+==== Preuves à fournir 
+
+* [*Challenge 3.1.1*] Screenshot de l'Operator installé
+* [*Challenge 3.1.2*] Screenshot du pipeline qui s'est déroulé sans soucis (tout vert)
+
+=== Installer OpenShift Pipelines Trigger [*Challenge 5.2*]
+
+On veut déclencher notre pipeline à chaque commit, pour cela il va falloir installer un Trigger.
+
+==== Preuves à fournir 
+
+* [*Challenge 3.2.1*] Screenshot du trigger qui déclenche le pipeline (ou screenshot du log)
 
