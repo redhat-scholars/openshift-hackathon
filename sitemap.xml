@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/01-setup.html</loc>
-<lastmod>2021-12-17T08:43:34.553Z</lastmod>
+<loc>https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/01-containers.html</loc>
+<lastmod>2022-05-15T13:41:48.245Z</lastmod>
 </url>
 <url>
-<loc>https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/02-containers.html</loc>
-<lastmod>2021-12-17T08:43:34.553Z</lastmod>
+<loc>https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/02-openshift.html</loc>
+<lastmod>2022-05-15T13:41:48.245Z</lastmod>
+</url>
+<url>
+<loc>https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/03-cicd.html</loc>
+<lastmod>2022-05-15T13:41:48.245Z</lastmod>
+</url>
+<url>
+<loc>https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/04-templates-services.html</loc>
+<lastmod>2022-05-15T13:41:48.245Z</lastmod>
+</url>
+<url>
+<loc>https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/05-consommation-services.html</loc>
+<lastmod>2022-05-15T13:41:48.245Z</lastmod>
+</url>
+<url>
+<loc>https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/06-resilience.html</loc>
+<lastmod>2022-05-15T13:41:48.245Z</lastmod>
 </url>
 <url>
 <loc>https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/index.html</loc>
-<lastmod>2021-12-17T08:43:34.553Z</lastmod>
+<lastmod>2022-05-15T13:41:48.245Z</lastmod>
 </url>
 </urlset>

@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Welcome to the Openshift Hackathon :: Openshift Hackathon</title>
-    <link rel="canonical" href="https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/index.html">
-    <link rel="next" href="01-containers.html">
+    <title>Untitled :: Openshift Hackathon</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/01-containers.html">
+    <link rel="prev" href="index.html">
+    <link rel="next" href="02-openshift.html">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
   </head>
@@ -50,7 +51,7 @@
 <ul class="nav-list">
   <li class="nav-item" data-depth="0">
 <ul class="nav-list">
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="01-containers.html">1. Challenge 1 - Containers</a>
   </li>
   <li class="nav-item" data-depth="1">
@@ -79,68 +80,89 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="index.html" class="home-link is-current"></a>
+  <a href="index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Openshift Hackathon</a></li>
-    <li><a href="index.html">Welcome to the Openshift Hackathon</a></li>
+    <li><a href="01-containers.html">1. Challenge 1 - Containers</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/redhat-scholars/openshift-hackathon/edit/master/documentation/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/redhat-scholars/openshift-hackathon/edit/master/documentation/modules/ROOT/pages/01-containers.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Welcome to the Openshift Hackathon</h1>
-<div class="sect1 text-center strong">
-<h2>Welcome to the Hackathon !</h2>
+<div class="sect1">
+<h2 id="_les_containers"><a class="anchor" href="#_les_containers"></a>Les containers</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bienvenue au Hackathon Erable !
-Vous trouverez ici le contenu des différents challenges ainsi que des resources techniques.</p>
+<p>Le premier challenge ca consister à containeriser une application.
+L&#8217;application à containeriser se trouve ici : <a href="https://github.com/sebastienblanc/antennas-front" class="bare">https://github.com/sebastienblanc/antennas-front</a></p>
 </div>
 <div class="paragraph">
-<p>Assurez-vous aussi de bien rejoindre le channel Slack car c&#8217;est par ce moyen que vous allez fournrir les preuves pour chaque challenge : <a href="https://rhdevnation.slack.com/archives/C03FGU9LR2N" class="bare">https://rhdevnation.slack.com/archives/C03FGU9LR2N</a></p>
+<p>Pensez bien à bien forker ce dépot ! Vous allez travailler sur cette application pendant les 2 prochaines journées.
+Pensez bien à packager votre application avant de commencer à le containeriser.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2>Fournir les preuves</h2>
+<h2 id="exercice1"><a class="anchor" href="#exercice1"></a>Containeriser votre app [<strong>Challenge 1.1</strong>]</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Dès que vous avez completé un challenge, un membre de votre équipe, enverra un message sur le channel avec en préfixe, le nom de l&#8217;équipe et le numéro du challenge, par exemple <strong>[Equipe1 - Challenge 1.1.1]</strong> suivis du screnshot ou bien de l&#8217;URL.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2>Le comptage des points</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Chaque challenge contient 2 sous-challenge ceux-ci contiennent un certains nombre de preuves à fournir.
-Chaque sous-challenge rapporte 5 points lorsque toutes les preuves ont été fournis.</p>
+<p>Pour ce premier challenge vous allez utiliser Docker et un DockerFile pour créer votre image de container.
+Vous pouvez créer votre Dockerfile mais regardez le repo forké, il y a peut-etre un Dockerfile déjà présent ;)</p>
 </div>
 <div class="paragraph">
-<p>Par exemple pour avoir les 5 points du Challenge 1.1 , il faudra fournir les preuves 1.1.1, 1.1.2 et 1.1.3</p>
+<p>Vous allez ensuite devoir démarrer ce container et faire en sorte que le port 8080 soit bien exposé.</p>
 </div>
 <div class="paragraph">
-<p>Des points bonus sont attribués pour les premières équipes fournissant les preuves :</p>
+<p>Et finalement démarrer encore une fois le container mais positionner une variable d&#8217;environnement <code>PING</code> avec la valeur <code>ERABLE</code>.</p>
 </div>
+<div class="sect2">
+<h3 id="_preuves_à_fournir"><a class="anchor" href="#_preuves_à_fournir"></a>Preuves à fournir</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Première équipe : +3 points</p>
+<p>[<strong>Challenge 1.1.1</strong>] Screenshot du résultat du <code>docker build</code></p>
 </li>
 <li>
-<p>Deuxième équipe : +2 points</p>
+<p>[<strong>Challenge 1.1.2</strong>] Screenshot du résultat du <code>docker run</code> et le résultat du <code>curl localhost:8080/rest/ping</code></p>
 </li>
 <li>
-<p>Troisième équipe : +1 points</p>
+<p>[<strong>Challenge 1.1.3</strong>] Screenshot du résultat du <code>curl localhost:8080/rest/ping</code> affichnant <code>ERABLE</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="exercice2"><a class="anchor" href="#exercice2"></a>Containeriser votre app avec JKube et pousser vers une registry [<strong>Challenge 1.2</strong>]</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Cette fois au lieu d&#8217;utiliser Docker vous allez utiliser JKube.
+Sun nous a écris un petit document qui vous aidera, gardez car vous en aurez besoin aussi cet après-midi pour le deuxième challenge : <a href="https://gist.github.com/sunix/781e37ff1598f87c4e72c3019ac34061" class="bare">https://gist.github.com/sunix/781e37ff1598f87c4e72c3019ac34061</a></p>
+</div>
+<div class="paragraph">
+<p>Pour la deuxième partie de ce challenge vous allez devoir pousser votr image de container dans une registry. Pour cela vous pouvez vous créer un compte sur <a href="https://quay.io/" class="bare">https://quay.io/</a></p>
+</div>
+<div class="sect2">
+<h3 id="_preuves_à_fournir_2"><a class="anchor" href="#_preuves_à_fournir_2"></a>Preuves à fournir</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>[<strong>Challenge 1.2.1</strong>] Screenshot du résultat de la commande du plugin maven <code>oc:build</code></p>
+</li>
+<li>
+<p>[<strong>Challenge 1.2.2</strong>] Screenshot de votre repo quay.io où l&#8217;on voit l&#8217;image de container.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <nav class="pagination">
-  <span class="next"><a href="01-containers.html">1. Challenge 1 - Containers</a></span>
+  <span class="prev"><a href="index.html">Openshift Hackathon</a></span>
+  <span class="next"><a href="02-openshift.html">2. Challenge 2 - OpenShift</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">

@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Welcome to the Openshift Hackathon :: Openshift Hackathon</title>
-    <link rel="canonical" href="https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/index.html">
-    <link rel="next" href="01-containers.html">
+    <title>Untitled :: Openshift Hackathon</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/06-resilience.html">
+    <link rel="prev" href="05-consommation-services.html">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
   </head>
@@ -65,7 +65,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="05-consommation-services.html">5. Challenge 5 - Consommation du service</a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="06-resilience.html">6. Challenge 6 - Résilience et scalabilité</a>
   </li>
 </ul>
@@ -79,68 +79,112 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="index.html" class="home-link is-current"></a>
+  <a href="index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Openshift Hackathon</a></li>
-    <li><a href="index.html">Welcome to the Openshift Hackathon</a></li>
+    <li><a href="06-resilience.html">6. Challenge 6 - Résilience et scalabilité</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/redhat-scholars/openshift-hackathon/edit/master/documentation/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/redhat-scholars/openshift-hackathon/edit/master/documentation/modules/ROOT/pages/06-resilience.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Welcome to the Openshift Hackathon</h1>
-<div class="sect1 text-center strong">
-<h2>Welcome to the Hackathon !</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Bienvenue au Hackathon Erable !
-Vous trouverez ici le contenu des différents challenges ainsi que des resources techniques.</p>
-</div>
-<div class="paragraph">
-<p>Assurez-vous aussi de bien rejoindre le channel Slack car c&#8217;est par ce moyen que vous allez fournrir les preuves pour chaque challenge : <a href="https://rhdevnation.slack.com/archives/C03FGU9LR2N" class="bare">https://rhdevnation.slack.com/archives/C03FGU9LR2N</a></p>
-</div>
-</div>
-</div>
 <div class="sect1">
-<h2>Fournir les preuves</h2>
+<h2 id="_résilience_et_scalabilité"><a class="anchor" href="#_résilience_et_scalabilité"></a>Résilience et scalabilité</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Dès que vous avez completé un challenge, un membre de votre équipe, enverra un message sur le channel avec en préfixe, le nom de l&#8217;équipe et le numéro du challenge, par exemple <strong>[Equipe1 - Challenge 1.1.1]</strong> suivis du screnshot ou bien de l&#8217;URL.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2>Le comptage des points</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Chaque challenge contient 2 sous-challenge ceux-ci contiennent un certains nombre de preuves à fournir.
-Chaque sous-challenge rapporte 5 points lorsque toutes les preuves ont été fournis.</p>
+<p>Il est de temps de rendre nos deux applications résilientes et capable de tenir la charge.
+Nous allons commencer par rajouter des <code>health checks</code> à notre <code>antennas-incidents</code>. Puis nous positionnerons un Horizontal Pod Autoscaler afin de pouvoir tenir la charge.</p>
 </div>
 <div class="paragraph">
-<p>Par exemple pour avoir les 5 points du Challenge 1.1 , il faudra fournir les preuves 1.1.1, 1.1.2 et 1.1.3</p>
+<p>Finalement, nous modifierons <code>antennas-front</code> afin qu&#8217;elle soit résilience dans le cas où le service distant (<code>antennas-incident</code>) soit indisponible. Pour cela, il faudra encore une fois changer le code de notre application <code>antennas-front</code> en utlisant l&#8217;extension <code>fault-tolerance</code> : <a href="https://quarkus.io/guides/smallrye-fault-tolerance" class="bare">https://quarkus.io/guides/smallrye-fault-tolerance</a></p>
 </div>
+<div class="sect2">
+<h3 id="_mise_en_place_des_health_checks_challenge_6_1"><a class="anchor" href="#_mise_en_place_des_health_checks_challenge_6_1"></a>Mise en place des Health Checks [<strong>Challenge 6.1</strong>]</h3>
 <div class="paragraph">
-<p>Des points bonus sont attribués pour les premières équipes fournissant les preuves :</p>
+<p>L&#8217;application <code>antennas-incident</code> a 2 endpoints qui fournissent des checks :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Première équipe : +3 points</p>
+<p><code>q/health/live</code> pour le liveness probe</p>
 </li>
 <li>
-<p>Deuxième équipe : +2 points</p>
+<p><code>q/health/ready</code> pour le readyness probe</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Il va falloir mettre à jour les resources K8s afin d&#8217;utiliser ces probes.</p>
+</div>
+<div class="paragraph">
+<p>Ensuite, il faut mettre en place un HPA (Horizontal Pod Autoscaler). Pensez aussi à baisser les resources disponibles de votre <code>Deployment</code> (Limit and Request), mettez des valeurs assez basse pour faire réagir le HPA.</p>
+</div>
+<div class="paragraph">
+<p>Voici un example d&#8217;un HPA :</p>
+</div>
+<div class="listingblock console-output">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-text hljs" data-lang="text">kind: HorizontalPodAutoscaler
+apiVersion: autoscaling/v2beta2
+metadata:
+  name: example
+  namespace: myspace
+spec:
+  scaleTargetRef:
+    kind: Deployment
+    name: antennas-incident
+    apiVersion: apps/v1
+  minReplicas: 1
+  maxReplicas: 3
+  metrics:
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: AverageValue
+          averageValue: 10Mi</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_preuves_à_fournir"><a class="anchor" href="#_preuves_à_fournir"></a>Preuves à fournir</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>[<strong>Challenge 6.1.1</strong>] Screenshot que le pod contient bien les health checks</p>
 </li>
 <li>
-<p>Troisième équipe : +1 points</p>
+<p>[<strong>Challenge 6.1.2</strong>] Screenshot de la resource HPA</p>
+</li>
+<li>
+<p>[<strong>Challenge 6.1.3</strong>] Screenshot que le pod autoscale</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_mise_en_place_des_health_checks_challenge_6_2"><a class="anchor" href="#_mise_en_place_des_health_checks_challenge_6_2"></a>Mise en place des Health Checks [<strong>Challenge 6.2</strong>]</h3>
+<div class="paragraph">
+<p>Il s&#8217;agit maintenant de modifier <code>antennas-front</code> afin qu&#8217;elle soit résiliente en cas de coupure de <code>antennas-incident</code>.
+Pensez à scaler <code>antennas-incident</code> afin de simuler une panne du service.</p>
+</div>
+<div class="sect3">
+<h4 id="_preuves_à_fournir_2"><a class="anchor" href="#_preuves_à_fournir_2"></a>Preuves à fournir</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>[<strong>Challenge 6.2.1</strong>] URL du service <code>antennas-front</code> et qui montre un incident nommé <code>fallback</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 <nav class="pagination">
-  <span class="next"><a href="01-containers.html">1. Challenge 1 - Containers</a></span>
+  <span class="prev"><a href="05-consommation-services.html">5. Challenge 5 - Consommation du service</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
