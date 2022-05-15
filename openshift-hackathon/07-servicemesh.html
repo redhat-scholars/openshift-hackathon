@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Welcome to the Openshift Hackathon :: Openshift Hackathon</title>
-    <link rel="canonical" href="https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/index.html">
-    <link rel="next" href="01-containers.html">
+    <title>Untitled :: Openshift Hackathon</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/07-servicemesh.html">
+    <link rel="prev" href="06-resilience.html">
     <meta name="generator" content="Antora 3.0.0">
     <link rel="stylesheet" href="../_/css/site.css">
   </head>
@@ -68,7 +68,7 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="06-resilience.html">6. Challenge 6 - Résilience et scalabilité</a>
   </li>
-  <li class="nav-item" data-depth="1">
+  <li class="nav-item is-current-page" data-depth="1">
     <a class="nav-link" href="07-servicemesh.html">7. Challenge 7 - Service Mesh</a>
   </li>
 </ul>
@@ -82,82 +82,107 @@
 <main class="article">
 <div class="toolbar" role="navigation">
 <button class="nav-toggle"></button>
-  <a href="index.html" class="home-link is-current"></a>
+  <a href="index.html" class="home-link"></a>
 <nav class="breadcrumbs" aria-label="breadcrumbs">
   <ul>
     <li><a href="index.html">Openshift Hackathon</a></li>
-    <li><a href="index.html">Welcome to the Openshift Hackathon</a></li>
+    <li><a href="07-servicemesh.html">7. Challenge 7 - Service Mesh</a></li>
   </ul>
 </nav>
-  <div class="edit-this-page"><a href="https://github.com/redhat-scholars/openshift-hackathon/edit/master/documentation/modules/ROOT/pages/index.adoc">Edit this Page</a></div>
+  <div class="edit-this-page"><a href="https://github.com/redhat-scholars/openshift-hackathon/edit/master/documentation/modules/ROOT/pages/07-servicemesh.adoc">Edit this Page</a></div>
   </div>
   <div class="content">
 <article class="doc">
-<h1 class="page">Welcome to the Openshift Hackathon</h1>
-<div class="sect1 text-center strong">
-<h2>Bienvenue au Hackathon Erable !</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Vous trouverez ici le contenu des différents challenges ainsi que des resources techniques.</p>
-</div>
-<div class="paragraph">
-<p>Assurez-vous aussi de bien rejoindre le channel Slack car c&#8217;est par ce moyen que vous allez fournrir les preuves pour chaque challenge : <a href="https://rhdevnation.slack.com/archives/C03FGU9LR2N" class="bare">https://rhdevnation.slack.com/archives/C03FGU9LR2N</a></p>
-</div>
-</div>
-</div>
 <div class="sect1">
-<h2>Fournir les preuves</h2>
+<h2 id="_service_mesh"><a class="anchor" href="#_service_mesh"></a>Service Mesh</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Dès que vous avez completé un challenge, un membre de votre équipe, enverra un message sur le channel avec en préfixe, le nom de l&#8217;équipe et le numéro du challenge, par exemple <strong>[Equipe1 - Challenge 1.1.1]</strong> suivis du screnshot ou bien de l&#8217;URL.</p>
+<p>Pour ce dernier challenge nous allons installer un Service Mesh sur notre cluster.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2>Le comptage des points</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_installation_de_loperator_service_mesh"><a class="anchor" href="#_installation_de_loperator_service_mesh"></a>Installation de l&#8217;Operator Service Mesh</h3>
 <div class="paragraph">
-<p>Chaque challenge contient 2 sous-challenge ceux-ci contiennent un certains nombre de preuves à fournir.
-Chaque sous-challenge rapporte 5 points lorsque toutes les preuves ont été fournis.</p>
-</div>
-<div class="paragraph">
-<p>Par exemple pour avoir les 5 points du Challenge 1.1 , il faudra fournir les preuves 1.1.1, 1.1.2 et 1.1.3</p>
-</div>
-<div class="paragraph">
-<p>Des points bonus sont attribués pour les premières équipes fournissant les preuves :</p>
+<p>Ce n&#8217;est pas un mais quatre Operators que vous allez devoir installer, suivez bien les instructions sur ces pages :</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Première équipe : +3 points</p>
+<p><a href="https://docs.openshift.com/container-platform/4.8/service_mesh/v2x/installing-ossm.html" class="bare">https://docs.openshift.com/container-platform/4.8/service_mesh/v2x/installing-ossm.html</a></p>
 </li>
 <li>
-<p>Deuxième équipe : +2 points</p>
+<p><a href="https://docs.openshift.com/container-platform/4.8/service_mesh/v2x/ossm-create-smcp.html" class="bare">https://docs.openshift.com/container-platform/4.8/service_mesh/v2x/ossm-create-smcp.html</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Comme conseillez dans la documentation, faites un namespace dedié comme par exemple <code>istio-system</code></p>
+</div>
+<div class="paragraph">
+<p>Créez égallement un second namespace pour le rajouter au <code>ServiceMeshMemberRoll</code> , c&#8217;est égallement le namespace où l&#8217;on déploiera notre workload faisant partie du mesh :
+<a href="https://docs.openshift.com/container-platform/4.8/service_mesh/v2x/ossm-create-mesh.html#ossm-member-roll-create_ossm-create-mesh" class="bare">https://docs.openshift.com/container-platform/4.8/service_mesh/v2x/ossm-create-mesh.html#ossm-member-roll-create_ossm-create-mesh</a></p>
+</div>
+<div class="sect3">
+<h4 id="_preuves_à_fournir"><a class="anchor" href="#_preuves_à_fournir"></a>Preuves à fournir</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>[<strong>Challenge 7.1.1</strong>] Screenshot qui montre l&#8217;installation des 4 Operators</p>
 </li>
 <li>
-<p>Troisième équipe : +1 points</p>
+<p>[<strong>Challenge 7.1.2</strong>] Screenshot qui les annotations du project/namespace qui a été rajouté au mesh. Des annotations spécifiques du service mesh doivent y figurer.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2>Les resources</h2>
-<div class="sectionbody">
+<div class="sect2">
+<h3 id="_déployer_un_workload_un_destination_rule_et_un_virtual_service_dans_le_mesh"><a class="anchor" href="#_déployer_un_workload_un_destination_rule_et_un_virtual_service_dans_le_mesh"></a>Déployer un workload, un Destination Rule et un Virtual Service dans le mesh</h3>
+<div class="paragraph">
+<p>Maintenant que tout est installé nous pouvons déployer un service, ainsi que 2 deployments ayant des versions différentes.</p>
+</div>
+<div class="paragraph">
+<p>Forker ce repo : <a href="https://github.com/sebastienblanc/antennas-incident" class="bare">https://github.com/sebastienblanc/antennas-incident</a></p>
+</div>
+<div class="paragraph">
+<p>A l&#8217;intérieur du répertoire <code>istio</code> appliquez toutes les resources qui s&#8217;y trouvent dans cet ordre :</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://dn.dev/learn" class="bare">http://dn.dev/learn</a></p>
+<p>IncidentDeploymentV1</p>
 </li>
 <li>
-<p><a href="http://quarkus.io" class="bare">http://quarkus.io</a></p>
+<p>IncidentDeploymentV2</p>
+</li>
+<li>
+<p>Gateway</p>
+</li>
+<li>
+<p>DestinationRule</p>
+</li>
+<li>
+<p>VirtualService</p>
 </li>
 </ul>
+</div>
+<div class="sect3">
+<h4 id="_preuves_à_fournir_2"><a class="anchor" href="#_preuves_à_fournir_2"></a>Preuves à fournir</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>[<strong>Challenge 7.2.1</strong>] Une URL qui montre que le traffic est balancé à 75% vers la v1 et 25% vers la v2beta2</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Bravo !</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <nav class="pagination">
-  <span class="next"><a href="01-containers.html">1. Challenge 1 - Containers</a></span>
+  <span class="prev"><a href="06-resilience.html">6. Challenge 6 - Résilience et scalabilité</a></span>
 </nav>
 </article>
 <aside class="toc sidebar" data-title="Contents" data-levels="2">
