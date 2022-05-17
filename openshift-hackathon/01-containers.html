@@ -72,6 +72,15 @@
   <li class="nav-item" data-depth="1">
     <a class="nav-link" href="07-servicemesh.html">7. Challenge 7 - Service Mesh</a>
   </li>
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="annexes.html">Annexes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="annexes.html#jkube">JKube</a>
+  </li>
+</ul>
+  </li>
 </ul>
   </li>
 </ul>
@@ -103,7 +112,7 @@ L&#8217;application à containeriser se trouve ici : <a href="https://github.com
 </div>
 <div class="paragraph">
 <p>Pensez bien à bien forker ce dépot ! Vous allez travailler sur cette application pendant les 2 prochaines journées.
-Pensez bien à packager votre application avant de commencer à le containeriser.</p>
+Pensez bien à packager votre application avant de commencer à la containeriser. (<code>mvn clean package</code>)</p>
 </div>
 </div>
 </div>
@@ -131,7 +140,7 @@ Vous pouvez créer votre Dockerfile mais regardez le repo forké, il y a peut-et
 <p>[<strong>Challenge 1.1.2</strong>] Screenshot du résultat du <code>docker run</code> et le résultat du <code>curl localhost:8080/rest/ping</code></p>
 </li>
 <li>
-<p>[<strong>Challenge 1.1.3</strong>] Screenshot du résultat du <code>curl localhost:8080/rest/ping</code> affichnant <code>ERABLE</code></p>
+<p>[<strong>Challenge 1.1.3</strong>] Screenshot du résultat du <code>curl localhost:8080/rest/ping</code> affichant <code>ERABLE</code></p>
 </li>
 </ul>
 </div>
@@ -143,10 +152,10 @@ Vous pouvez créer votre Dockerfile mais regardez le repo forké, il y a peut-et
 <div class="sectionbody">
 <div class="paragraph">
 <p>Cette fois au lieu d&#8217;utiliser Docker vous allez utiliser JKube.
-Sun nous a écris un petit document qui vous aidera, gardez car vous en aurez besoin aussi cet après-midi pour le deuxième challenge : <a href="https://gist.github.com/sunix/781e37ff1598f87c4e72c3019ac34061" class="bare">https://gist.github.com/sunix/781e37ff1598f87c4e72c3019ac34061</a></p>
+Sun nous a écris un petit document qui vous aidera, gardez car vous en aurez besoin aussi cet après-midi pour le deuxième challenge, cherchez dans les annexes &#8230;&#8203;</p>
 </div>
 <div class="paragraph">
-<p>Pour la deuxième partie de ce challenge vous allez devoir pousser votr image de container dans une registry. Pour cela vous pouvez vous créer un compte sur <a href="https://quay.io/" class="bare">https://quay.io/</a></p>
+<p>Pour la deuxième partie de ce challenge vous allez devoir pousser votre image de container dans une registry. Pour cela vous pouvez vous créer un compte sur <a href="https://quay.io/" class="bare">https://quay.io/</a></p>
 </div>
 <div class="sect2">
 <h3 id="_preuves_à_fournir_2"><a class="anchor" href="#_preuves_à_fournir_2"></a>Preuves à fournir</h3>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Untitled :: Openshift Hackathon</title>
+    <link rel="canonical" href="https://redhat-scholars.github.io/openshift-hackathon/openshift-hackathon/annexes.html">
+    <link rel="prev" href="07-servicemesh.html">
+    <meta name="generator" content="Antora 3.0.0">
+    <link rel="stylesheet" href="../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://developers.redhat.com" target="_blank"><img src="../_/img/NewRHDFullLogo_4-color_white-wordmark.png" height="40px" alt="Red Hat Developer Program"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="https://redhat-scholars.github.io/openshift-hackathon">Openshift Hackathon</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://developers.redhat.com/ebooks/" target="_blank">Books</a>
+        <a class="navbar-item" href="https://developers.redhat.com/cheatsheets/" target="_blank">Cheat Sheets</a>
+        <a class="navbar-item" href="https://developers.redhat.com/events/" target="_blank">Upcoming Events</a>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="#">More Tutorials</a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/kubernetes-tutorial/" target="_blank">Kubernetes</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/istio-tutorial/" target="_blank">Istio</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/quarkus-tutorial/" target="_blank">Quarkus</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/knative-tutorial/" target="_blank">Knative</a>
+            <a class="navbar-item" href="https://redhat-developer-demos.github.io/tekton-tutorial/" target="_blank">Tekton</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="openshift-hackathon" data-version="master">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html"></a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="01-containers.html">1. Challenge 1 - Containers</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="02-openshift.html">2. Challenge 2 - OpenShift</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="03-cicd.html">3. Challenge 3 - CI/CD</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="04-templates-services.html">4. Challenge 4 - Templates et Services</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="05-consommation-services.html">5. Challenge 5 - Consommation du service</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="06-resilience.html">6. Challenge 6 - Résilience et scalabilité</a>
+  </li>
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="07-servicemesh.html">7. Challenge 7 - Service Mesh</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="annexes.html">Annexes</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="#jkube">JKube</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Openshift Hackathon</a></li>
+    <li><a href="annexes.html">Annexes</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="https://github.com/redhat-scholars/openshift-hackathon/edit/master/documentation/modules/ROOT/pages/annexes.adoc">Edit this Page</a></div>
+  </div>
+  <div class="content">
+<article class="doc">
+<div class="sect1">
+<h2 id="juke"><a class="anchor" href="#juke"></a>JKube</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_containeriser_lapplication_et_déploiement_sur_openshift"><a class="anchor" href="#_containeriser_lapplication_et_déploiement_sur_openshift"></a>Containeriser l&#8217;application et déploiement sur Openshift</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Jusque là, nous avions développé notre application en utilisant le <code>devmode</code> de Quarkus sur notre machine locale.
+Cela nous a permis de bénéficier du rechargement à chaud de notre application et des différents <code>dev services</code>.
+Cependant, le <code>devmode</code> n&#8217;est à utiliser qu&#8217;en phase de développement.</p>
+</div>
+<div class="sect2">
+<h3 id="_packager_votre_application_quarkus"><a class="anchor" href="#_packager_votre_application_quarkus"></a>Packager votre application Quarkus</h3>
+<div class="paragraph">
+<p>Notre application est basée sur Maven pour le packaging et la gestion des dépendances. Packager notre application se fera donc classiquement avec la commande</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ ./mvnw package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cette commande va compiler l&#8217;application et générer le fichier <code>target/quarkus-app/quarkus-run.jar</code> que l&#8217;on pourra exécuter avec la commande suivante :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ java -jar ./target/quarkus-app/quarkus-run.jar
+__  ____  __  _____   ___  __ ____  ______
+ --/ __ \/ / / / _ | / _ \/ //_/ / / / __/
+ -/ /_/ / /_/ / __ |/ , _/ ,&lt; / /_/ /\ \
+--\___\_\____/_/ |_/_/|_/_/|_|\____/___/
+2022-05-10 13:13:25,073 INFO  [io.quarkus] (main) code-with-quarkus 1.0.0-SNAPSHOT on JVM (powered by Quarkus 2.8.3.Final) started in 0.731s. Listening on: http://0.0.0.0:8080
+2022-05-10 13:13:25,089 INFO  [io.quarkus] (main) Profile prod activated.
+2022-05-10 13:13:25,089 INFO  [io.quarkus] (main) Installed features: [cdi, resteasy-reactive, smallrye-context-propagation, vertx]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Accédez à l&#8217;application sur votre navigateur via l&#8217;URL <a href="http://localhost:8080" class="bare">http://localhost:8080</a>. Vous pouvez taper <code>Ctrl-c</code> pour arrêter l&#8217;application.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_image_conteneur"><a class="anchor" href="#_image_conteneur"></a>Image conteneur</h3>
+<div class="paragraph">
+<p>L&#8217;application au format <code>jar</code> peut être exécutée sur n&#8217;importe quelle machine si elle dispose d&#8217;une JVM Java. La JVM Java n&#8217;est pas nécessairement installée sur les serveurs cloud. Pour pallier ce problème, Openshift et Kubernetes s&#8217;appuient sur des images conteneurs qui incluent, non seulement, votre application (fichier .jar pour notre projet) mais également les dépendances nécessaires pour l&#8217;exécution de votre application. Pour notre projet, nous créerons un container disposant de la JVM Java, du fichier <code>quarkus-run.jar</code> ainsi que de la commande à exécuter.
+La génération d&#8217;une image container se fait généralement à l&#8217;aide d&#8217;un fichier <code>Dockerfile</code> et de la commande <code>docker</code> ou <code>podman</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_manifests_kubernetes"><a class="anchor" href="#_manifests_kubernetes"></a>Manifests Kubernetes</h3>
+<div class="paragraph">
+<p>Pour un déploiement sur un cluster Kubernetes ou Openshift, l&#8217;image conteneur ne sera pas suffisante. Le déploiement de conteneurs sur Kubernetes nécessite d&#8217;autres informations de déploiement telles que le nombre d&#8217;instances de conteneur à déployer, les services externes utilisés ou encore le port à utiliser pour un accès public.
+Ces configurations sont définies dans des fichiers <code>.yaml</code> et pourront être déployées à l&#8217;aide de la commande <code>oc</code> ou <code>kubectl</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_eclipse_jkube_et_sa_politique_zéro_configuration"><a class="anchor" href="#_eclipse_jkube_et_sa_politique_zéro_configuration"></a>Eclipse JKube et sa politique Zéro configuration</h3>
+<div class="paragraph">
+<p>Ainsi, en suivant une approche classique, packager et déployer notre application Quarkus nécessitent l&#8217;installation d&#8217;outils comme <code>docker</code> et <code>oc</code> ainsi que la création et la maintenance des fichiers <code>Dockerfile</code> et <code>.yaml</code>.
+Le projet Eclipse JKube propose des plugins Maven et Gradle pour construire vos conteneurs, générer vos configurations Kubernetes et déployer le tout sur Kubernetes ou Openshift. JKube analysera le projet Java et le dossier <code>target</code> ou <code>build</code> pour générer l&#8217;image du container et une configuration Kubernetes qui fonctionne pour votre projet. Bien sûr, il est possible de surcharger ces configurations. L&#8217;objectif est d&#8217;avoir un minimum de fichiers à maintenir et de se baser sur un minimum d&#8217;outils.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_authentification_sur_le_cluster_openshift"><a class="anchor" href="#_authentification_sur_le_cluster_openshift"></a>Authentification sur le cluster Openshift.</h3>
+<div class="paragraph">
+<p>Avant de construire vos images et les déployer sur Openshift, JKube nécessite que vous soyez authentifié sur le cluster Openshift. Sur vos instances de CI/CD, vous n&#8217;aurez pas forcément <code>oc</code> d&#8217;installé. Il suffira de fournir le fichier <code>~/.kube/config</code> d&#8217;une instance authentifiée à votre CI/CD.
+Dans notre cas, on se contentera d&#8217;exécuter la commande <code>oc login</code> pour générer ce fichier <code>~/.kube/config</code> qui sera utilisé par JKube pour s&#8217;authentifier à notre cluster Openshift.</p>
+</div>
+<div class="sect3">
+<h4 id="_todo_télécharger_oc_et_récupérer_la_commande_pour_se_logger_et_lexecuter"><a class="anchor" href="#_todo_télécharger_oc_et_récupérer_la_commande_pour_se_logger_et_lexecuter"></a>TODO télécharger oc et récupérer la commande pour se logger et l&#8217;executer</h4>
+
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ajout_du_plugin_jkube_pour_openshift"><a class="anchor" href="#_ajout_du_plugin_jkube_pour_openshift"></a>Ajout du plugin JKube pour Openshift</h3>
+<div class="paragraph">
+<p>Le projet Eclipse JKube dispose de 4 plugins à utiliser selon les cas :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>kubernetes-maven-plugin</code></p>
+</li>
+<li>
+<p><code>kubernetes-gradle-plugin</code></p>
+</li>
+<li>
+<p><code>openshift-maven-plugin</code></p>
+</li>
+<li>
+<p><code>openshift-gradle-plugin</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Les noms de plugin parlent d&#8217;eux mêmes, dans notre cas nous utiliserons <code>openshift-maven-plugin</code>. Chaque plugin fournit un jeu de <code>goals</code> ou <code>tasks</code> que vous pourrez utiliser individuellement en ligne de commande ou attacher à un profil. Les plugins <code>openshift-</code> ont la particularité d&#8217;utiliser un maximum des fonctionnalités d&#8217;Openshift. Par exemple, <code>mvn oc:build</code> utilisera <code>s2i</code> pour construire le conteneur alors que <code>mvn k8s:build</code> utilisera le daemon <code>docker</code> par défaut.</p>
+</div>
+<div class="paragraph">
+<p>Ajoutons simplement le plugin <code>openshift-maven-plugin</code> à notre fichier <code>pom.xml</code> dans la section <code>build/plugins</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">  &lt;build&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.eclipse.jkube&lt;/groupId&gt;
+        &lt;artifactId&gt;openshift-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;1.7.0&lt;/version&gt;
+      &lt;/plugin&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_construction_du_conteneur"><a class="anchor" href="#_construction_du_conteneur"></a>Construction du conteneur</h3>
+<div class="paragraph">
+<p>Pour construire le conteneur, il suffit d&#8217;invoquer la commande</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ ./mvnw oc:build</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Comme mentionné précédemment, le goal <code>oc:build</code> utilisera <code>s2i</code> pour construire l&#8217;image de conteneur.
+Vous pouvez consulter la section <code>Builds</code> de la console openshift pour visualiser la construction de vos images ou utiliser la commande <code>oc get build</code></p>
+</div>
+<div class="sect3">
+<h4 id="_behind_the_scene"><a class="anchor" href="#_behind_the_scene"></a>Behind the scene</h4>
+<div class="paragraph">
+<p>Le goal <code>oc:build</code> analyse le projet et détecte qu&#8217;il s&#8217;agit d&#8217;un projet Quarkus. JKube choisit l&#8217;image de base à utiliser (dans notre cas <code>quay.io/jkube/jkube-java:0.0.13</code>) et y inclut le contenu du dossier <code>target/quarkus-app</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_génération_de_la_configuration_kubernetes"><a class="anchor" href="#_génération_de_la_configuration_kubernetes"></a>Génération de la configuration Kubernetes</h3>
+<div class="paragraph">
+<p>Pour générer la configuration Kubernetes :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ ./mvnw oc:resource</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Les fichiers Kubernetes sont localisés dans le dossier <code>target/classes/META-INF/jkube/openshift/</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_application_de_la_configuration_sur_le_cluster"><a class="anchor" href="#_application_de_la_configuration_sur_le_cluster"></a>Application de la configuration sur le cluster</h3>
+<div class="paragraph">
+<p>Pour appliquer la configuration et donc déclencher le déploiement :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ ./mvnw oc:apply</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Le goal <code>oc:apply</code> va faire l&#8217;équivalent d&#8217;un <code>oc apply</code> or <code>kubectl apply</code> des fichiers générés précédemment.</p>
+</div>
+<div class="paragraph">
+<p>Vous pouvez accéder à l&#8217;application via l&#8217;url que vous pouvez récupérer de la console Openshift ou la commande <code>oc get route</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_création_dun_profile_openshift_pour_la_cicd"><a class="anchor" href="#_création_dun_profile_openshift_pour_la_cicd"></a>Création d&#8217;un profile openshift pour la CI/CD</h3>
+<div class="paragraph">
+<p>Nous souhaitons simplifier l&#8217;exécution de la génération du jar, de l&#8217;image, des ressources Kubernetes et le déploiement dans notre CI/CD.
+Nous pouvons invoquer tous les goals en une seule commande:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ ./mvnw package oc:build oc:resource oc:apply</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Nous pourrions également avoir un profile <code>openshift</code> qui déclencherait tous les goals <code>oc:build</code>, <code>oc:resource</code> et <code>oc:apply</code> :</p>
+</div>
+<div class="paragraph">
+<p>Dans le fichier <code>pom.xml</code>, ajouter le profile <code>openshift</code> dans la section <code>profiles</code> :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">  &lt;profiles&gt;
+    &lt;profile&gt;
+      &lt;id&gt;openshift&lt;/id&gt;
+      &lt;build&gt;
+        &lt;plugins&gt;
+          &lt;plugin&gt;
+            &lt;groupId&gt;org.eclipse.jkube&lt;/groupId&gt;
+            &lt;artifactId&gt;openshift-maven-plugin&lt;/artifactId&gt;
+            &lt;executions&gt;
+              &lt;execution&gt;
+                &lt;phase&gt;package&lt;/phase&gt;
+                &lt;goals&gt;
+                  &lt;goal&gt;build&lt;/goal&gt;
+                  &lt;goal&gt;resource&lt;/goal&gt;
+                  &lt;goal&gt;apply&lt;/goal&gt;
+                &lt;/goals&gt;
+              &lt;/execution&gt;
+            &lt;/executions&gt;
+          &lt;/plugin&gt;
+        &lt;/plugins&gt;
+      &lt;/build&gt;
+    &lt;/profile&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Exécutez la commande</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ ./mvnw package</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cela devrait lancer uniquement le packaging du jar ainsi que les tests.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ ./mvnw package -Popenshift</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Cela devrait exécuter le packaging du jar les tests, mais également les goals <code>oc:build</code>, <code>oc:resource</code> et <code>oc:apply</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_scaling"><a class="anchor" href="#_scaling"></a>Scaling</h3>
+<div class="paragraph">
+<p>JKube pré-configure automatiquement la configuration kubernetes. Mais il est possible de surcharger cette configuration.
+Par exemple, pour changer le nombre de <code>replicas</code> de 1 à 5, il suffit de définir la propriété <code>jkube.replicas</code>.
+Dans le fichier <code>pom.xml</code></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="xml">  &lt;properties&gt;
+    &lt;jkube.replicas&gt;5&lt;/jkube.replicas&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>puis exécutez</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ ./mvnw oc:resource oc:apply</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>ou directement en ligne de commande</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-sh hljs" data-lang="sh">$ ./mvnw oc:resource oc:apply -Djkube.replicas=5</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vérifiez que vous avez bien 5 pods sur la console openshift ou avec la commande <code>oc get pods</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nettoyage"><a class="anchor" href="#_nettoyage"></a>Nettoyage</h3>
+<div class="paragraph">
+<p>Pour supprimer nos builds et déploiements générés par JKube, exécutez</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-shell hljs" data-lang="shell">$ ./mvnw oc:undeploy</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Vérifiez que tout est bien supprimé dans la console Openshift.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_résumé"><a class="anchor" href="#_résumé"></a>Résumé</h3>
+<div class="paragraph">
+<p>Durant ce challenge, nous avons utilisé le <code>maven-openshift-plugin</code> de Eclipse JKube pour
+- Construire une image conteneur pour notre projet Quarkus
+- Générer les manifests Kubernetes
+- Déployer l&#8217;application sur Openshift</p>
+</div>
+<div class="paragraph">
+<p>Nous avons également optimisé la configuration pour une utilisation simplifiée en 1 ligne de commande et avec l&#8217;utilisation d&#8217;un profil maven.</p>
+</div>
+<div class="paragraph">
+<p>Enfin, nous avons modifié la configuration pour déployer 5 instances du conteneur (pod).</p>
+</div>
+<div class="paragraph">
+<p>Toutes ces actions ont pu être invoquées
+* avec uniquement Maven et un cluster Openshift,
+* avec un minimum de fichier à créer et à maintenir</p>
+</div>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="07-servicemesh.html">7. Challenge 7 - Service Mesh</a></span>
+</nav>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <a class="rhd-logo" href="https://developers.redhat.com" target="_blank"></div>
+</footer>
+<script src="../_/js/vendor/clipboard.js"></script>
+<script src="../_/js/site.js"></script>
+<script async src="../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
