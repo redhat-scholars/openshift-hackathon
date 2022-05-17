@@ -2,12 +2,12 @@
 
 Il est temps de mettre en place notre chaine de CI/CD. On part du principe qu'on utilise OpenShift Pipelines dont le projet upstream est `Tekton` mais vous pouvez aussi utiliser Jenkins si vous préférez.
 
-Pour en savoir plus sur Tekton n'hésitez pas à regarder ce tutorial : dn.dev/tekton-tutorial
+Pour en savoir plus sur Tekton n'hésitez pas à regarder ce tutorial : http://dn.dev/tekton-tutorial
 
 === Installer OpenShift Pipelines [*Challenge 5.1*]
 
 OpenShift Pipelines est fourni par l'intermédiaire d'un Operator. Il va falloir que vous exploriez votre cluster pour trouver comment l'installer.
-Une fois installé vous pourrez faire la meme chose que le challenge 2.2 , la partie CI/CD , regardez bien les options, vous pourrez cette fois rajouter un pipeline.
+Une fois installé vous pourrez faire la meme chose que le challenge 2.2 , la partie s2i , regardez bien les options, vous pourrez cette fois rajouter un pipeline.
 
 ==== Preuves à fournir 
 

@@ -5,5 +5,7 @@
 * xref:05-consommation-services.adoc[5. Challenge 5 - Consommation du service]
 * xref:06-resilience.adoc[6. Challenge 6 - Résilience et scalabilité]
 * xref:07-servicemesh.adoc[7. Challenge 7 - Service Mesh]
+* xref:annexes.adoc[Annexes]
+** * xref:annexes.adoc#jkube[JKube]
 
 

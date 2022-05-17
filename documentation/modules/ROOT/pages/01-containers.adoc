@@ -4,7 +4,7 @@ Le premier challenge ca consister à containeriser une application.
 L'application à containeriser se trouve ici : https://github.com/sebastienblanc/antennas-front
 
 Pensez bien à bien forker ce dépot ! Vous allez travailler sur cette application pendant les 2 prochaines journées.
-Pensez bien à packager votre application avant de commencer à le containeriser. 
+Pensez bien à packager votre application avant de commencer à la containeriser. (`mvn clean package`)
 
 
 [#exercice1]
@@ -22,16 +22,16 @@ Et finalement démarrer encore une fois le container mais positionner une variab
 
 * [*Challenge 1.1.1*] Screenshot du résultat du `docker build`
 * [*Challenge 1.1.2*] Screenshot du résultat du `docker run` et le résultat du `curl localhost:8080/rest/ping`
-* [*Challenge 1.1.3*] Screenshot du résultat du `curl localhost:8080/rest/ping` affichnant `ERABLE`
+* [*Challenge 1.1.3*] Screenshot du résultat du `curl localhost:8080/rest/ping` affichant `ERABLE`
 
 
 [#exercice2]
 == Containeriser votre app avec JKube et pousser vers une registry [*Challenge 1.2*]
 
 Cette fois au lieu d'utiliser Docker vous allez utiliser JKube. 
-Sun nous a écris un petit document qui vous aidera, gardez car vous en aurez besoin aussi cet après-midi pour le deuxième challenge : https://gist.github.com/sunix/781e37ff1598f87c4e72c3019ac34061
+Sun nous a écris un petit document qui vous aidera, gardez car vous en aurez besoin aussi cet après-midi pour le deuxième challenge, cherchez dans les annexes ...
 
-Pour la deuxième partie de ce challenge vous allez devoir pousser votr image de container dans une registry. Pour cela vous pouvez vous créer un compte sur https://quay.io/
+Pour la deuxième partie de ce challenge vous allez devoir pousser votre image de container dans une registry. Pour cela vous pouvez vous créer un compte sur https://quay.io/
 
 === Preuves à fournir 
 
