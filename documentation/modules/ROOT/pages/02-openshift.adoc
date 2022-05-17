@@ -5,7 +5,7 @@ Ce matin vous avez créé votre image de container, il est maintenant temps de l
 === Accès au cluster 
 
 
-=== Déployer directement l'image sur OpenShift [*Challenge 2.1*]
+=== Déployer directement l'image sur OpenShift [*Challenge 2.1*]  __Beginner__
 
 Utilisez la perspective "Developer" de votre console OpenShift pour déployer votre image.
 
@@ -14,7 +14,7 @@ Utilisez la perspective "Developer" de votre console OpenShift pour déployer vo
 * [*Challenge 2.1.1*] L'URL de la route de votre application
 * [*Challenge 2.1.2*] Screenshot montrant que vous avez réussis à scaler l'application à 2 Pods
 
-=== Utilisation de s2i et génération des resources K8s avec JKube [*Challenge 2.2*]
+=== Utilisation de s2i et génération des resources K8s avec JKube [*Challenge 2.2*] __Advanced__
 
 Dans cette deuxième partie du challenge vous allez déployer votre application de 2 manières différentes : 
 

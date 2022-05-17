@@ -3,7 +3,7 @@
 Pour ce dernier challenge nous allons installer un Service Mesh sur notre cluster. 
 
 
-=== Installation de l'Operator Service Mesh
+=== Installation de l'Operator Service Mesh [*Challenge 7.1*]  __Beginner__
 
 Ce n'est pas un mais quatre Operators que vous allez devoir installer, suivez bien les instructions sur ces pages : 
 
@@ -20,7 +20,7 @@ https://docs.openshift.com/container-platform/4.8/service_mesh/v2x/ossm-create-m
 * [*Challenge 7.1.1*] Screenshot qui montre l'installation des 4 Operators
 * [*Challenge 7.1.2*] Screenshot qui les annotations du project/namespace qui a été rajouté au mesh. Des annotations spécifiques du service mesh doivent y figurer.
 
-=== Déployer un workload, un Destination Rule et un Virtual Service dans le mesh
+=== Déployer un workload, un Destination Rule et un Virtual Service dans le mesh [*Challenge 7.2*] __Advanced__
 
 Maintenant que tout est installé nous pouvons déployer un service, ainsi que 2 deployments ayant des versions différentes. 
 

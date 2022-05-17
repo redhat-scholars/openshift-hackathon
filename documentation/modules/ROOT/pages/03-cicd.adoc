@@ -4,7 +4,7 @@ Il est temps de mettre en place notre chaine de CI/CD. On part du principe qu'on
 
 Pour en savoir plus sur Tekton n'hésitez pas à regarder ce tutorial : http://dn.dev/tekton-tutorial
 
-=== Installer OpenShift Pipelines [*Challenge 5.1*]
+=== Installer OpenShift Pipelines [*Challenge 5.1*]  __Beginner__
 
 OpenShift Pipelines est fourni par l'intermédiaire d'un Operator. Il va falloir que vous exploriez votre cluster pour trouver comment l'installer.
 Une fois installé vous pourrez faire la meme chose que le challenge 2.2 , la partie s2i , regardez bien les options, vous pourrez cette fois rajouter un pipeline.
@@ -14,7 +14,7 @@ Une fois installé vous pourrez faire la meme chose que le challenge 2.2 , la pa
 * [*Challenge 3.1.1*] Screenshot de l'Operator installé
 * [*Challenge 3.1.2*] Screenshot du pipeline qui s'est déroulé sans soucis (tout vert)
 
-=== Installer OpenShift Pipelines Trigger [*Challenge 5.2*]
+=== Installer OpenShift Pipelines Trigger [*Challenge 5.2*] __Advanced__
 
 On veut déclencher notre pipeline à chaque commit, pour cela il va falloir installer un Trigger.
 

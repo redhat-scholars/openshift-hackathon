@@ -8,7 +8,7 @@ Pensez bien à packager votre application avant de commencer à la containeriser
 
 
 [#exercice1]
-== Containeriser votre app [*Challenge 1.1*]
+== Containeriser votre app [*Challenge 1.1*] __Beginner__
 
 Pour ce premier challenge vous allez utiliser Docker et un DockerFile pour créer votre image de container.
 Vous pouvez créer votre Dockerfile mais regardez le repo forké, il y a peut-etre un Dockerfile déjà présent ;)
@@ -26,7 +26,7 @@ Et finalement démarrer encore une fois le container mais positionner une variab
 
 
 [#exercice2]
-== Containeriser votre app avec JKube et pousser vers une registry [*Challenge 1.2*]
+== Containeriser votre app avec JKube et pousser vers une registry [*Challenge 1.2*] __Advanced__
 
 Cette fois au lieu d'utiliser Docker vous allez utiliser JKube. 
 Sun nous a écris un petit document qui vous aidera, gardez car vous en aurez besoin aussi cet après-midi pour le deuxième challenge, cherchez dans les annexes ...

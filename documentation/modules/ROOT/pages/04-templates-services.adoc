@@ -6,7 +6,7 @@ On peut égallement créer ses propres templates, il s'agit d'une resource OpenS
 
 L'application qu'on va déployer est le service qui fournit la liste des incidents, pour l'instant on va uniquement le déployer mais lors du challenge 5 on le consommera avec notre première application.
 
-=== Déployer le template et l'instancier [*Challenge 4.1*]
+=== Déployer le template et l'instancier [*Challenge 4.1*]  __Beginner__
 
 Voici le template que vous allez utiliser : https://gist.github.com/sebastienblanc/1ddaabb0fd87aeba5b1fb9241aa0c653
 
@@ -16,7 +16,7 @@ Voici le template que vous allez utiliser : https://gist.github.com/sebastienbla
 * [*Challenge 4.1.2*] Screenshot qui montre la création d'une instance du catalogue
 * [*Challenge 4.1.3*] URL vers le nouvel service déployé
 
-=== Customiser le template [*Challenge 4.2*]
+=== Customiser le template [*Challenge 4.2*] __Advanced__
 
 Comme vous pouvez le voir, la resource `Secret` a une valeur "en dur" dans le template.
 Le but de ce challenge est de rendre cette valeur paramètrable.
