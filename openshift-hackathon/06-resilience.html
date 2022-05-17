@@ -114,7 +114,7 @@ Nous allons commencer par rajouter des <code>health checks</code> à notre <code
 <p>Finalement, nous modifierons <code>antennas-front</code> afin qu&#8217;elle soit résilience dans le cas où le service distant (<code>antennas-incident</code>) soit indisponible. Pour cela, il faudra encore une fois changer le code de notre application <code>antennas-front</code> en utlisant l&#8217;extension <code>fault-tolerance</code> : <a href="https://quarkus.io/guides/smallrye-fault-tolerance" class="bare">https://quarkus.io/guides/smallrye-fault-tolerance</a></p>
 </div>
 <div class="sect2">
-<h3 id="_mise_en_place_des_health_checks_challenge_6_1"><a class="anchor" href="#_mise_en_place_des_health_checks_challenge_6_1"></a>Mise en place des Health Checks [<strong>Challenge 6.1</strong>]</h3>
+<h3 id="_mise_en_place_des_health_checks_challenge_6_1_beginner"><a class="anchor" href="#_mise_en_place_des_health_checks_challenge_6_1_beginner"></a>Mise en place des Health Checks [<strong>Challenge 6.1</strong>]  <em>Beginner</em></h3>
 <div class="paragraph">
 <p>L&#8217;application <code>antennas-incident</code> a 2 endpoints qui fournissent des checks :</p>
 </div>
@@ -178,7 +178,7 @@ spec:
 </div>
 </div>
 <div class="sect2">
-<h3 id="_mise_en_place_des_health_checks_challenge_6_2"><a class="anchor" href="#_mise_en_place_des_health_checks_challenge_6_2"></a>Mise en place des Health Checks [<strong>Challenge 6.2</strong>]</h3>
+<h3 id="_mise_en_place_des_health_checks_challenge_6_2_advanced"><a class="anchor" href="#_mise_en_place_des_health_checks_challenge_6_2_advanced"></a>Mise en place des Health Checks [<strong>Challenge 6.2</strong>] <em>Advanced</em></h3>
 <div class="paragraph">
 <p>Il s&#8217;agit maintenant de modifier <code>antennas-front</code> afin qu&#8217;elle soit résiliente en cas de coupure de <code>antennas-incident</code>.
 Pensez à scaler <code>antennas-incident</code> afin de simuler une panne du service.</p>
