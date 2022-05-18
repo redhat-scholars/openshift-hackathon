@@ -6,7 +6,7 @@ Jusque là, nous avions développé notre application en utilisant le `devmode` 
 Cela nous a permis de bénéficier du rechargement à chaud de notre application et des différents `dev services`.
 Cependant, le `devmode` n'est à utiliser qu'en phase de développement.
 
-=== Packager votre application Quarkus
+== Packager votre application Quarkus
 Notre application est basée sur Maven pour le packaging et la gestion des dépendances. Packager notre application se fera donc classiquement avec la commande
 
 [source,shell]
@@ -26,25 +26,25 @@ __  ____  __  _____   ___  __ ____  ______
 
 Accédez à l'application sur votre navigateur via l'URL http://localhost:8080. Vous pouvez taper `Ctrl-c` pour arrêter l'application.
 
-=== Image conteneur
+== Image conteneur
 L'application au format `jar` peut être exécutée sur n'importe quelle machine si elle dispose d'une JVM Java. La JVM Java n'est pas nécessairement installée sur les serveurs cloud. Pour pallier ce problème, Openshift et Kubernetes s'appuient sur des images conteneurs qui incluent, non seulement, votre application (fichier .jar pour notre projet) mais également les dépendances nécessaires pour l'exécution de votre application. Pour notre projet, nous créerons un container disposant de la JVM Java, du fichier `quarkus-run.jar` ainsi que de la commande à exécuter.
 La génération d'une image container se fait généralement à l'aide d'un fichier `Dockerfile` et de la commande `docker` ou `podman`.
 
-=== Manifests Kubernetes
+== Manifests Kubernetes
 Pour un déploiement sur un cluster Kubernetes ou Openshift, l'image conteneur ne sera pas suffisante. Le déploiement de conteneurs sur Kubernetes nécessite d'autres informations de déploiement telles que le nombre d'instances de conteneur à déployer, les services externes utilisés ou encore le port à utiliser pour un accès public.
 Ces configurations sont définies dans des fichiers `.yaml` et pourront être déployées à l'aide de la commande `oc` ou `kubectl`.
 
-=== Eclipse JKube et sa politique Zéro configuration
+== Eclipse JKube et sa politique Zéro configuration
 Ainsi, en suivant une approche classique, packager et déployer notre application Quarkus nécessitent l'installation d'outils comme `docker` et `oc` ainsi que la création et la maintenance des fichiers `Dockerfile` et `.yaml`.
 Le projet Eclipse JKube propose des plugins Maven et Gradle pour construire vos conteneurs, générer vos configurations Kubernetes et déployer le tout sur Kubernetes ou Openshift. JKube analysera le projet Java et le dossier `target` ou `build` pour générer l'image du container et une configuration Kubernetes qui fonctionne pour votre projet. Bien sûr, il est possible de surcharger ces configurations. L'objectif est d'avoir un minimum de fichiers à maintenir et de se baser sur un minimum d'outils.
 
-=== Authentification sur le cluster Openshift.
+== Authentification sur le cluster Openshift.
 Avant de construire vos images et les déployer sur Openshift, JKube nécessite que vous soyez authentifié sur le cluster Openshift. Sur vos instances de CI/CD, vous n'aurez pas forcément `oc` d'installé. Il suffira de fournir le fichier `~/.kube/config` d'une instance authentifiée à votre CI/CD.
 Dans notre cas, on se contentera d'exécuter la commande `oc login` pour générer ce fichier `~/.kube/config` qui sera utilisé par JKube pour s'authentifier à notre cluster Openshift.
 
-==== TODO télécharger oc et récupérer la commande pour se logger et l'executer
+=== TODO télécharger oc et récupérer la commande pour se logger et l'executer
 
-=== Ajout du plugin JKube pour Openshift
+== Ajout du plugin JKube pour Openshift
 Le projet Eclipse JKube dispose de 4 plugins à utiliser selon les cas :
 
 * `kubernetes-maven-plugin`
@@ -65,7 +65,7 @@ Ajoutons simplement le plugin `openshift-maven-plugin` à notre fichier `pom.xml
         <version>1.7.0</version>
       </plugin>
 
-=== Construction du conteneur
+== Construction du conteneur
 Pour construire le conteneur, il suffit d'invoquer la commande
 
 [source,shell]
@@ -74,10 +74,29 @@ $ ./mvnw oc:build
 Comme mentionné précédemment, le goal `oc:build` utilisera `s2i` pour construire l'image de conteneur.
 Vous pouvez consulter la section `Builds` de la console openshift pour visualiser la construction de vos images ou utiliser la commande `oc get build`
 
-==== Behind the scene
+=== Behind the scene
 Le goal `oc:build` analyse le projet et détecte qu'il s'agit d'un projet Quarkus. JKube choisit l'image de base à utiliser (dans notre cas `quay.io/jkube/jkube-java:0.0.13`) et y inclut le contenu du dossier `target/quarkus-app`.
 
-=== Génération de la configuration Kubernetes
+== Pousser le conteneur dans la registry
+Par défaut, `oc:build` utilise s2i pour builder l'image du conteneur. L'image est alors automatiquement disponible dans la registry interne de Openshift. Cependant, si vous souhaitez builder et pousser vers une registry externe, vous pouvez utiliser les stratégies de construction `docker` ou `jib`.
+
+Il faudra alors spécifier la registry dans le nom de l'image ainsi que la stratégie de build à utiliser `docker` ou `jib`.
+
+[source,xml]
+  <properties>
+    <jkube.build.strategy>jib</jkube.build.strategy>
+    <jkube.generator.name>quay.io/sunix/code-with-quarkus</jkube.generator.name>
+    ...
+  </properties>
+
+puis configurer les credentials pour acceder à la registry `quay.io` ou `docker.io` : https://www.eclipse.org/jkube/docs/openshift-maven-plugin#authentication
+
+et enfin invoquer la commande
+
+[source,shell]
+$ ./mvnw oc:push
+
+== Génération de la configuration Kubernetes
 Pour générer la configuration Kubernetes :
 
 [source,shell]
@@ -85,7 +104,7 @@ $ ./mvnw oc:resource
 
 Les fichiers Kubernetes sont localisés dans le dossier `target/classes/META-INF/jkube/openshift/`
 
-=== Application de la configuration sur le cluster
+== Application de la configuration sur le cluster
 Pour appliquer la configuration et donc déclencher le déploiement :
 
 [source,shell]
@@ -95,7 +114,7 @@ Le goal `oc:apply` va faire l'équivalent d'un `oc apply` or `kubectl apply` des
 
 Vous pouvez accéder à l'application via l'url que vous pouvez récupérer de la console Openshift ou la commande `oc get route`.
 
-=== Création d'un profile openshift pour la CI/CD
+== Création d'un profile openshift pour la CI/CD
 Nous souhaitons simplifier l'exécution de la génération du jar, de l'image, des ressources Kubernetes et le déploiement dans notre CI/CD.
 Nous pouvons invoquer tous les goals en une seule commande:
 
@@ -143,7 +162,7 @@ $ ./mvnw package -Popenshift
 
 Cela devrait exécuter le packaging du jar les tests, mais également les goals `oc:build`, `oc:resource` et `oc:apply`.
 
-=== Scaling
+== Scaling
 JKube pré-configure automatiquement la configuration kubernetes. Mais il est possible de surcharger cette configuration.
 Par exemple, pour changer le nombre de `replicas` de 1 à 5, il suffit de définir la propriété `jkube.replicas`.
 Dans le fichier `pom.xml`
@@ -162,7 +181,7 @@ $ ./mvnw oc:resource oc:apply -Djkube.replicas=5
 
 Vérifiez que vous avez bien 5 pods sur la console openshift ou avec la commande `oc get pods`.
 
-=== Nettoyage
+== Nettoyage
 Pour supprimer nos builds et déploiements générés par JKube, exécutez
 
 [source,shell]
@@ -170,7 +189,7 @@ $ ./mvnw oc:undeploy
 
 Vérifiez que tout est bien supprimé dans la console Openshift.
 
-=== Résumé
+== Résumé
 Durant ce challenge, nous avons utilisé le `maven-openshift-plugin` de Eclipse JKube pour
 - Construire une image conteneur pour notre projet Quarkus
 - Générer les manifests Kubernetes
