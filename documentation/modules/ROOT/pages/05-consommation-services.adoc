@@ -4,7 +4,7 @@ Maintenant que nous avons `antennas-incident` de deployé nous alors devoir modi
 
 Il va falloir un petit peu coder :) 
 
-Voici un guide sur comment utiliser le `rest-client` de Quarkus : https://quarkus.io/guides/rest-client-reactive
+Voici un guide sur comment utiliser le `rest-client` de Quarkus : https://quarkus.io/guides/rest-client
 
 === Consommer le service distant avec APIKEY "en dur"  [*Challenge 5.1*]  __Beginner__
 
