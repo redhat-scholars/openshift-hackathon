@@ -8,7 +8,7 @@ Voici un guide sur comment utiliser le `rest-client` de Quarkus : https://quarku
 
 === Consommer le service distant avec APIKEY "en dur"  [*Challenge 5.1*]  __Beginner__
 
-Le `antennas-incident` expose un point REST `/rest/incidents?APIKEY=mysecret` , pensez bien à utiliser la valeur correcte.
+Le `antennas-incident` expose un point REST `/rest/incidents?api_key=mysecret` , pensez bien à utiliser la valeur correcte.
 Vous pouvez accèder au sein du cluster au service avec `http://antennas-incident/` , pour ceci pensez bien à rajouter une variable d'environnemnt avec cette clef :
 `ORG_SEBI_INCIDENT_INCIDENTSERVICE_MP_REST_URL`
 
